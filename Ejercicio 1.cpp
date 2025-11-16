@@ -2,9 +2,9 @@
 using namespace std;
 // Función que muestra los valores del arreglo
 void mostrarNumeros(int numeros[], int tamaño) {
-    cout << "\nLos números ingresados son:\n";
+    cout << "\nLos numeros ingresados son:\n";
     for (int i = 0; i < tamaño; i++) {
-        cout << "Número " << i + 1 << ": " << numeros[i] << endl;
+        cout << "Numero " << i + 1 << ": " << numeros[i] << endl;
     }
 }
 int main() {
@@ -13,9 +13,9 @@ int main() {
     int TAM = 5;
     int numeros[TAM];
     // Ingreso de datos desde el usuario
-    cout << "Ingrese 5 números enteros:\n";
+    cout << "Ingrese 5 numeros enteros:\n";
     for (int i = 0; i < TAM; i++) {
-        cout << "Número " << i + 1 << ": ";
+        cout << "Numero " << i + 1 << ": ";
         cin >> numeros[i];
     }
     // Llamada a la función para mostrar los números
