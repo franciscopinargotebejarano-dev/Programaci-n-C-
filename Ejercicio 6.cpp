@@ -1,21 +1,22 @@
 #include <iostream>
 using namespace std;
-// Función que encuentra el valor mayor usando paso por referencia
-void encontrarMayor(int numeros[], int cantidad, int &mayor) {
-    mayor = numeros[0]; // Se inicializa con el primer elemento
-    for (int i = 1; i < cantidad; i++) {
-        if (numeros[i] > mayor) {
-            mayor = numeros[i];
+// Función que cuenta el numero de pares ingresados
+int contarPares(int arr[], int tamaño) {
+    int contador = 0;
+    for (int i = 0; i < tamaño; i++) {
+        if (arr[i] % 2 == 0) {
+            contador++;
         }
     }
+    return contador; // Retorno del total de numeros pares encontrados
 }
 int main() {
     system("cls");
-    cout<<"Pinargote Javier\nEl ejercicio permite ingresar n numeros e identifica cual es el mayor dentro del arreglo\n";
-    int cantidad, num, numeros[cantidad], mayor;
-    do { //Menu interactivo
+    cout<<"Pinargote Javier\nEl ejercicio permite ingresar n numeros, contar la cantidad de pares ingresados y mostrarlos en pantalla\n";
+    int cantidad, numeros[cantidad], num;
+    do {//Menu interactivo
         cout<<"\n============MENU============"<<endl;
-        cout<<"1.- Ingresar numeros"<<endl<<"2.- Mostrar numero mayor"<<endl<<"3.- Salir"<<endl;
+        cout<<"1.- Ingresar numeros"<<endl<<"2.- Mostrar cantidad de pares"<<endl<<"3.- Salir"<<endl;
         cout<<"Selecione una opcion: ";
         cin>>num;
         switch (num) {
@@ -32,10 +33,7 @@ int main() {
                 break;
             }
             case 2: {
-                // Llamamos a la función para encontrar el mayor
-                encontrarMayor(numeros, cantidad, mayor);
-                // Mostrar el resultado
-                cout << "\nEl numero mayor del arreglo es: " << mayor << endl;
+                cout << "\nCantidad de numeros pares: " << contarPares(numeros, cantidad) << endl;
                 break;
             }
             case 3: {
@@ -47,8 +45,7 @@ int main() {
             cout<<"\nOpcion invalida!\n"<<endl;
             break;
         }
+        
     } while (num!=3) ;
-    
-    
     return 0;
 }

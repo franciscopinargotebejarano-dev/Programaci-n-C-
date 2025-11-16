@@ -30,27 +30,51 @@ void eliminarDato(int arreglo[], int &tamaño, int posicion) {
 int main() {
     system("cls");
     cout<<"Pinargote Javier\nEl ejercicio permite ingresar 5 numeros en un arregelo, pedir seleccionar uno para borrarlo, y mostrar 4 en pantalla\n";
-    int TAM = 5;
+    int TAM = 5, num;
     int arreglo[TAM];
     int tamañoActual = TAM;
     int suma = 0;
     int posicion;
-    // Ingreso de datos
-    cout << "Ingrese 5 numeros enteros:\n";
-    for (int i = 0; i < TAM; i++) {
-        cout << "Numero " << i + 1 << ": ";
-        cin >> arreglo[i];
-    }
-    // Mostrar arreglo original
-    mostrarArreglo(arreglo, tamañoActual);
-    // Eliminar dato según posición
-    cout << "\nIngrese la posicion del dato a eliminar (1 a 5): ";
-    cin >> posicion;
-    eliminarDato(arreglo, tamañoActual, posicion);
-    // Mostrar arreglo modificado
-    mostrarArreglo(arreglo, tamañoActual);
-    // Calcular suma
-    calcularSuma(arreglo, tamañoActual, suma);
-    cout << "\nLa suma total de los elementos es: " << suma << endl;
+    do {//Menu interactivo
+        cout<<"\n============MENU============"<<endl;
+        cout<<"1.- Ingresar 5 numeros"<<endl<<"2.- Borrar un numero"<<endl<<"3.- Salir"<<endl;
+        cout<<"Selecione una opcion: ";
+        cin>>num;
+        switch (num) {
+            case 1: {
+                // Ingreso de datos
+                cout << "\nIngrese 5 numeros enteros:\n";
+                for (int i = 0; i < TAM; i++) {
+                cout << "Numero " << i + 1 << ": ";
+                cin >> arreglo[i];
+                }
+                // Mostrar arreglo original
+                mostrarArreglo(arreglo, tamañoActual);
+                // Calcular suma
+                calcularSuma(arreglo, tamañoActual, suma);
+                cout << "\nLa suma total de los elementos es: " << suma << endl;
+                break;
+            }
+            case 2: {
+                // Eliminar dato según posición
+                cout << "\nIngrese la posicion del dato a eliminar (1 a 5): ";
+                cin >> posicion;
+                eliminarDato(arreglo, tamañoActual, posicion);
+                // Mostrar arreglo modificado
+                mostrarArreglo(arreglo, tamañoActual);
+                calcularSuma(arreglo, tamañoActual, suma);
+                cout << "\nLa suma total de los elementos es: " << suma << endl;
+                break;
+            }
+            case 3: {
+                cout<<"\n----------------------------------------------------\n"<<endl;
+                cout<<"Saliendo del programa...\n" << endl;
+                break; // Finalización del programa
+            }
+            default:
+            cout<<"\nOpcion invalida!\n"<<endl;
+            break;
+        }
+    } while (num!=3) ;
     return 0;
 }
